@@ -1,0 +1,6 @@
+{
+  "name": "Intent2Task",
+  "description": "AI-powered task extractor from chat records (Lark, WeChat, etc.) with automated structured tasks and reminders.",
+  "requestFramePermissions": [],
+  "majorCapabilities": []
+}

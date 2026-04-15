@@ -36,13 +36,12 @@ router.get("/lark/webhook", (req, res) => {
 });
 
 router.post("/lark/webhook", async (req, res) => {
-  console.log("Lark Webhook received:", JSON.stringify(req.body));
-  const { type, challenge } = req.body;
-
-  if (type === "url_verification") {
-    return res.status(200).json({ challenge });
+  // FAST RESPONSE FOR VERIFICATION
+  if (req.body.type === "url_verification") {
+    return res.status(200).json({ challenge: req.body.challenge });
   }
 
+  // Handle other events asynchronously
   const { event } = req.body;
   if (event && event.message) {
     console.log("Received Message:", event.message.content);
